@@ -1,0 +1,57 @@
+control:
+  build: ./env
+  hostname: control
+  links:
+    - sickbeard
+    - couchpotato
+    - sabnzbd
+    - plex
+    - mylar
+    - transmission
+    - htpcmanager
+  ports:
+    - "2200:22"
+  volumes:
+    - ./:/work
+sickbeard:
+  build: ./env
+  hostname: sickbeard
+  ports:
+    - "2201:22"
+    - "8081:8081"
+couchpotato:
+  build: ./env
+  hostname: couchpotato
+  ports:
+    - "2202:22"
+    - "5050:5050"
+sabnzbd:
+  build: ./env
+  hostname: sabnzbd
+  ports:
+    - "2203:22"
+    - "8080:8080"
+plex:
+  build: ./env
+  hostname: plex
+  ports:
+    - "2204:22"
+    - "32400:32400"
+mylar:
+  build: ./env
+  hostname: mylar
+  ports:
+    - "2205:22"
+    - "8090:8090"
+transmission: 
+  build: ./env
+  hostname: transmission
+  ports:
+    - "2206:22"
+    - "9091:9091"
+htpcmanager:
+  build: ./env
+  hostname: htpcmanager
+  ports:
+    - "2207:22"
+    - "8085:8085"
